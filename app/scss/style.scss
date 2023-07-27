@@ -1,6 +1,7 @@
 @import 'vars';
 @import 'fonts';
 @import 'reset';
+@import 'libs';
 @import 'global';
 
 .header {
@@ -19,8 +20,6 @@
 
   }
 
-
-
   &__list-item+.menu__list-item {
     padding-left: 35px;
   }
@@ -28,7 +27,7 @@
   &__list-link {
     color: $title;
     text-transform: uppercase;
-    padding:  0 2px 1px;
+    padding: 0 2px 1px;
     transition: all .3s;
 
     @extend %roboto-400;
@@ -158,43 +157,124 @@ footer {
     background-color: #fff;
     max-width: 320px;
     width: 100%;
-    border:none;
+    border: none;
     padding: 12px 10px 12px 15px;
     box-shadow: 0px 7px 20px 0px rgba(192, 192, 192, 0.3);
-    &::placeholder{
-      color:$default;
+
+    &::placeholder {
+      color: $default;
       font-size: 16px;
-      
+
     }
   }
 
   &__form-btn {
     border: none;
-    background-color: $accent;
-    color: #fff;
-    text-transform: uppercase;
-    padding: 12px 26px;
-    box-shadow: 0px 7px 20px 0px rgba(255, 17, 48, 0.3);
+    @extend %btn;
+
     cursor: pointer;
   }
 }
 
-.footer-bottom{
+.footer-bottom {
   height: 75px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
 
-  
-
-  &__accept-img{
+  &__accept-img {
     display: inline;
     vertical-align: middle;
     margin-left: 25px;
   }
 }
 
+.top-slider {
+  background-image: url('../images/top-slider-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-color: $bg;
+  padding: 65px 0 44px;
+
+  &__container {
+    max-width: 1560px;
+  }
+
+  &__item {
+    display: flex !important;
+    justify-content: space-between;
+  }
+
+  &__content {
+    padding-left: 175px;
+    padding-top: 125px;
+  }
+
+  &__title {
+    max-width: 670px;
+    font-size: 58px;
+    line-height: 68px;
+    color: $title;
+    @extend %roboto-700;
+    margin-bottom: 35px;
+  }
+
+  &__text {
+    margin-bottom: 55px;
+    max-width: 470px;
+  }
+
+  &__link {
+    @extend %btn;
+    padding: 14px 35px;
+  }
+
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: -70px;
+
+    li {
+      line-height: 0;
+      padding: 0 5px;
+
+      button {
+        padding: 0;
+        font-size: 0;
+        background-color: transparent;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        position: relative;
+
+        &::before {
+          content: "";
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: $default;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          position: absolute;
+        }
+      }
+
+      &.slick-active {
+        button {
+          border-color: $accent;
+
+          &::before {
+            background-color: $accent;
+          }
+        }
+      }
+    }
+  }
+}
 
 
 
