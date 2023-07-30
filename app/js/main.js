@@ -15,6 +15,14 @@ $(function () {
   Fancybox.bind("[data-fancybox]", {
 
   });
+
+  $(".star").rateYo({
+   
+    starWidth: "17px",
+    normalFill: "#ccccce",
+    ratedFill: "#ffc35b",
+    readOnly: true
+  });
  
 
 });
