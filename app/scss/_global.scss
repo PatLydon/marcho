@@ -105,3 +105,58 @@ a {
     }
   }
 }
+
+.breadcrumbs {
+  display: flex;
+  justify-content: center;
+
+  &__list {
+    display: inline-flex;
+    padding-left: 25px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url('../images/icons/home-icon.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 16px;
+      width: 16px;
+      left: 0;
+      top: 4px;
+    }
+  }
+
+  &__item {
+    color: #727272;
+    padding-right: 40px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url('../images/icons/angle-right.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      width: 9px;
+      height: 10px;
+      top: 9px;
+      right: 15px;
+    }
+
+    &:last-child {
+      color: $accent;
+      padding-right: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    color: inherit;
+  }
+}
