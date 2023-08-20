@@ -1,6 +1,249 @@
 
 $(function () {
 
+  let map;
+
+  async function initMap() {
+    const { Map } = await google.maps.importLibrary("maps");
+
+    map = new Map(document.getElementById("map"), {
+      center: { lat: 50.42022856336539, lng: 30.426837774019003 },
+      zoom: 14,
+
+      styles: [
+        {
+          "featureType": "all",
+          "elementType": "geometry.stroke",
+          "stylers": [
+            {
+              "visibility": "simplified"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative",
+          "elementType": "all",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative",
+          "elementType": "labels",
+          "stylers": [
+            {
+              "visibility": "simplified"
+            },
+            {
+              "color": "#a31645"
+            }
+          ]
+        },
+        {
+          "featureType": "landscape",
+          "elementType": "all",
+          "stylers": [
+            {
+              "weight": "3.79"
+            },
+            {
+              "visibility": "on"
+            },
+            {
+              "color": "#ffecf0"
+            }
+          ]
+        },
+        {
+          "featureType": "landscape",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "visibility": "on"
+            }
+          ]
+        },
+        {
+          "featureType": "landscape",
+          "elementType": "geometry.stroke",
+          "stylers": [
+            {
+              "visibility": "on"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "all",
+          "stylers": [
+            {
+              "visibility": "simplified"
+            },
+            {
+              "color": "#a31645"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "saturation": "0"
+            },
+            {
+              "lightness": "0"
+            },
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "geometry.stroke",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.business",
+          "elementType": "all",
+          "stylers": [
+            {
+              "visibility": "simplified"
+            },
+            {
+              "color": "#d89ca8"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.business",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "visibility": "on"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.business",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "visibility": "on"
+            },
+            {
+              "saturation": "0"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.business",
+          "elementType": "labels",
+          "stylers": [
+            {
+              "color": "#a31645"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.business",
+          "elementType": "labels.icon",
+          "stylers": [
+            {
+              "visibility": "simplified"
+            },
+            {
+              "lightness": "84"
+            }
+          ]
+        },
+        {
+          "featureType": "road",
+          "elementType": "all",
+          "stylers": [
+            {
+              "saturation": -100
+            },
+            {
+              "lightness": 45
+            }
+          ]
+        },
+        {
+          "featureType": "road.highway",
+          "elementType": "all",
+          "stylers": [
+            {
+              "visibility": "simplified"
+            }
+          ]
+        },
+        {
+          "featureType": "road.arterial",
+          "elementType": "labels.icon",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "transit",
+          "elementType": "all",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "all",
+          "stylers": [
+            {
+              "color": "#d89ca8"
+            },
+            {
+              "visibility": "on"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "visibility": "on"
+            },
+            {
+              "color": "#fedce3"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "labels",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        }
+      ]
+    });
+  }
+
+  
+
+  initMap();
+
   $('.blog-page__slider').slick({
     prevArrow:'<button type="button" class="slick-prev"><svg xmlns="http://www.w3.org/2000/svg"  width="9px" height="14px" viewBox="0 0 9 14" version="1.1"><g><path  d="M 1.164062 6.382812 C 0.8125 6.722656 0.8125 7.277344 1.164062 7.621094 L 5.664062 11.996094 C 6.015625 12.335938 6.585938 12.335938 6.9375 11.996094 C 7.289062 11.652344 7.289062 11.097656 6.9375 10.757812 L 3.074219 7 L 6.9375 3.242188 C 7.289062 2.902344 7.289062 2.347656 6.9375 2.003906 C 6.585938 1.664062 6.011719 1.664062 5.660156 2.003906 L 1.160156 6.378906 Z M 1.164062 6.382812 "/></g></svg></button',
     nextArrow:'<button type="button" class="slick-next"><svg xmlns="http://www.w3.org/2000/svg"  width="9px" height="14px" viewBox="0 0 9 14" version="1.1"><g><path  d="M 7.835938 6.382812 C 8.1875 6.722656 8.1875 7.277344 7.835938 7.621094 L 3.335938 11.996094 C 2.984375 12.335938 2.414062 12.335938 2.0625 11.996094 C 1.710938 11.652344 1.710938 11.097656 2.0625 10.757812 L 5.925781 7 L 2.0625 3.242188 C 1.710938 2.902344 1.710938 2.347656 2.0625 2.003906 C 2.414062 1.664062 2.988281 1.664062 3.339844 2.003906 L 7.839844 6.378906 Z M 7.835938 6.382812 "/></g></svg></button',
